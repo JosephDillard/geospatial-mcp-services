@@ -1,0 +1,14 @@
+name: geospatial-mcp-services
+
+services:
+  geonames-wikipedia:
+    build:
+      context: ./servers/geonames_wikipedia
+      dockerfile: Dockerfile
+    image: geospatial-mcp/geonames-wikipedia:local
+    environment:
+      GEONAMES_USERNAME: ${GEONAMES_USERNAME:?Set GEONAMES_USERNAME in .env}
+      GEONAMES_TIMEOUT_SECONDS: ${GEONAMES_TIMEOUT_SECONDS:-12}
+      MCP_LOG_LEVEL: ${MCP_LOG_LEVEL:-INFO}
+    stdin_open: true
+    tty: true

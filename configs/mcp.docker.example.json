@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "geonames-wikipedia": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "GEONAMES_USERNAME",
+        "-e",
+        "GEONAMES_TIMEOUT_SECONDS",
+        "geospatial-mcp/geonames-wikipedia:local"
+      ]
+    }
+  }
+}
