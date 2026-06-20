@@ -4,16 +4,23 @@ This repo contains Docker-ready Model Context Protocol servers for geospatial
 assistant workflows. Each MCP server should stand on its own while sharing root
 documentation and Docker/config examples.
 
+## Suggested GitHub Description
+
+Docker-ready Model Context Protocol servers for map-aware GeoNames/Wikipedia lookup and incident risk analysis from selected coordinates.
+
 ## Stack Context
 
 Related sibling repos:
 
-- `geospatial-status-board` is the map viewer that can eventually call MCP tools
-  from map clicks or selected features.
+- `geospatial-status-board` is the map viewer that can call bridge/API routes
+  from map clicks or selected features. Do not imply browser-hosted MCP unless a
+  real MCP-aware host is wired in.
 - `geospatial-data-gateway` loads and refreshes PostGIS layers that can provide
   context for assistant tools.
 - `geoai-asset-detection-platform` creates GeoAI outputs that may become map
   layers or assistant context.
+- `geospatial-etl-validation-toolkit` validates datasets before they become map
+  or assistant context.
 
 When changing cross-repo docs, prefer full GitHub URLs for links that point
 outside this repo.
@@ -21,17 +28,17 @@ outside this repo.
 ## What This Repo Owns
 
 - MCP servers: `servers/<server_name>/`
-- First server: `servers/geonames_wikipedia/`
-- Incident server: `servers/incident_analyst/`
+- GeoNames/Wikipedia server: `servers/geonames_wikipedia/`
+- Incident Analyst server: `servers/incident_analyst/`
 - GeoNames/Wikipedia package:
   `servers/geonames_wikipedia/src/geonames_wikipedia_mcp/`
 - MCP host config examples: `configs/`
 - Map-click contract docs: `docs/map-point-tool-contract.md`
 - Local image helpers: `docker-compose.yml`
 
-The first tool is `explore_point_with_geonames`, which accepts latitude and
-longitude from a map click and returns nearby GeoNames/Wikipedia context plus
-transparent source/search URLs.
+The GeoNames/Wikipedia tool is `explore_point_with_geonames`, which accepts
+latitude and longitude from a map click and returns nearby GeoNames/Wikipedia
+context plus transparent source/search URLs.
 
 The incident analyst tool is `analyze_incident_point`, which accepts latitude and
 longitude from a map click and returns nearby synthetic incidents, nearby assets,
@@ -70,7 +77,7 @@ python -m unittest discover -s servers/incident_analyst/tests -v
 Remove-Item Env:PYTHONPATH
 ```
 
-Build the first MCP image:
+Build the GeoNames/Wikipedia MCP image:
 
 ```powershell
 docker build `
