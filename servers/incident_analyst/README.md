@@ -19,9 +19,9 @@ Example arguments:
 
 ```json
 {
-  "latitude": 32.9312,
-  "longitude": -96.4597,
-  "radius_km": 5,
+  "latitude": 35.6870,
+  "longitude": -105.9378,
+  "radius_km": 120,
   "max_incidents": 5,
   "include_assets": true
 }

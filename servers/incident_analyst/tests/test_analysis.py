@@ -13,8 +13,8 @@ from incident_analyst_mcp.analysis import (
 
 class IncidentAnalysisTests(unittest.TestCase):
     def test_validate_coordinates(self) -> None:
-        self.assertEqual(validate_latitude(32.9), 32.9)
-        self.assertEqual(validate_longitude(-96.4), -96.4)
+        self.assertEqual(validate_latitude(35.9), 35.9)
+        self.assertEqual(validate_longitude(-105.9), -105.9)
         with self.assertRaises(ValueError):
             validate_latitude(91)
         with self.assertRaises(ValueError):
@@ -25,13 +25,13 @@ class IncidentAnalysisTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_radius(0)
         with self.assertRaises(ValueError):
-            validate_radius(101)
+            validate_radius(251)
 
     def test_distance_is_reasonable(self) -> None:
-        self.assertLess(distance_km(32.9312, -96.4597, 32.9324, -96.4605), 1)
+        self.assertLess(distance_km(35.6870, -105.9378, 35.6932, -105.9446), 1)
 
     def test_analyze_point_returns_nearby_context(self) -> None:
-        result = analyze_point(latitude=32.9312, longitude=-96.4597, radius_km=5)
+        result = analyze_point(latitude=35.6870, longitude=-105.9378, radius_km=120)
 
         self.assertEqual(result["status"], "ok")
         self.assertGreaterEqual(result["incident_count"], 1)
@@ -40,7 +40,7 @@ class IncidentAnalysisTests(unittest.TestCase):
         self.assertTrue(result["recommended_actions"])
 
     def test_analyze_point_without_nearby_context(self) -> None:
-        result = analyze_point(latitude=33.5, longitude=-97.2, radius_km=1)
+        result = analyze_point(latitude=34.0, longitude=-103.0, radius_km=10)
 
         self.assertEqual(result["incident_count"], 0)
         self.assertEqual(result["asset_count"], 0)

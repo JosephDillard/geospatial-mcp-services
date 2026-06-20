@@ -26,7 +26,7 @@ def analyze_point(
     *,
     latitude: float,
     longitude: float,
-    radius_km: float = 5,
+    radius_km: float = 120,
     max_incidents: int = 5,
     include_assets: bool = True,
 ) -> dict[str, Any]:
@@ -90,8 +90,8 @@ def validate_longitude(value: float) -> float:
 
 def validate_radius(value: float) -> float:
     radius = float(value)
-    if radius <= 0 or radius > 100:
-        raise ValueError("Radius must be greater than 0 and no more than 100 km.")
+    if radius <= 0 or radius > 250:
+        raise ValueError("Radius must be greater than 0 and no more than 250 km.")
     return radius
 
 

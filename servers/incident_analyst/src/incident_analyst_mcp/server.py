@@ -19,7 +19,7 @@ mcp = FastMCP(
 def analyze_incident_point(
     latitude: float,
     longitude: float,
-    radius_km: float = 5,
+    radius_km: float = 120,
     max_incidents: int = 5,
     include_assets: bool = True,
 ) -> dict[str, Any]:
