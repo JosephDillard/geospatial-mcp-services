@@ -26,7 +26,7 @@ def analyze_point(
     *,
     latitude: float,
     longitude: float,
-    radius_km: float = 120,
+    radius_km: float = 220,
     max_incidents: int = 5,
     include_assets: bool = True,
 ) -> dict[str, Any]:

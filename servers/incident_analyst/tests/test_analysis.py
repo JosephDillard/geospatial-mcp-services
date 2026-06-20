@@ -31,13 +31,16 @@ class IncidentAnalysisTests(unittest.TestCase):
         self.assertLess(distance_km(35.6870, -105.9378, 35.6932, -105.9446), 1)
 
     def test_analyze_point_returns_nearby_context(self) -> None:
-        result = analyze_point(latitude=35.6870, longitude=-105.9378, radius_km=120)
+        result = analyze_point(latitude=35.6870, longitude=-105.9378, radius_km=220)
 
         self.assertEqual(result["status"], "ok")
         self.assertGreaterEqual(result["incident_count"], 1)
         self.assertGreaterEqual(result["asset_count"], 1)
         self.assertIn(result["risk"]["level"], {"low", "medium", "high"})
         self.assertTrue(result["recommended_actions"])
+        categories = {item["category"] for item in result["nearby_incidents"]}
+        self.assertIn("disaster_relief", categories)
+        self.assertIn("force_protection", categories)
 
     def test_analyze_point_without_nearby_context(self) -> None:
         result = analyze_point(latitude=34.0, longitude=-103.0, radius_km=10)

@@ -9,6 +9,10 @@ This server is intentionally deterministic and offline-friendly. It is designed 
 prove the tool contract before connecting to a live PostGIS layer, status-board
 API, or enterprise incident feed.
 
+The sample data covers northern New Mexico from Santa Fe toward the Colorado
+border, including utility, weather, communications, disaster-relief, and
+force-protection incidents.
+
 ## Tool
 
 ```text
@@ -21,7 +25,7 @@ Example arguments:
 {
   "latitude": 35.6870,
   "longitude": -105.9378,
-  "radius_km": 120,
+  "radius_km": 220,
   "max_incidents": 5,
   "include_assets": true
 }
