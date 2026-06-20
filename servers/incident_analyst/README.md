@@ -13,6 +13,19 @@ The sample data covers northern New Mexico from Santa Fe toward the Colorado
 border, including utility, weather, communications, disaster-relief, and
 force-protection incidents.
 
+## Fit With The Stack
+
+This server owns the deterministic MCP incident-analysis tool. The
+local `map-to-ai-incident-analyst` repo provides a standalone browser bridge/demo, and
+the `geospatial-status-board` Incident Analyst route can call that bridge through
+same-origin app proxy routes while keeping MCP transport out of the browser.
+
+Related repos:
+
+- Map-to-AI Incident Analyst bridge/demo (local repo; GitHub publication pending)
+- [Geospatial Status Board](https://github.com/JosephDillard/geospatial-status-board)
+- [Root MCP services README](../../README.md)
+
 ## Tool
 
 ```text

@@ -12,6 +12,19 @@ The tool accepts `latitude` and `longitude`, then searches GeoNames nearby Wikip
 entries. It also runs a Wikipedia OpenSearch query using either the supplied `query`
 or the best nearby article title.
 
+## Fit With The Stack
+
+This server backs the map-click place-context story for the broader portfolio.
+The `geospatial-status-board` map currently exposes Wiki/GeoNames exploration as
+a browser map tool; future MCP-aware hosts or bridge services can call this MCP
+server using the same point-input contract.
+
+Related docs:
+
+- [Root MCP services README](../../README.md)
+- [Map point tool contract](../../docs/map-point-tool-contract.md)
+- [Geospatial Status Board](https://github.com/JosephDillard/geospatial-status-board)
+
 ## Environment
 
 ```text
