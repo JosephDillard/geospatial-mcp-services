@@ -12,6 +12,15 @@
         "GEONAMES_TIMEOUT_SECONDS",
         "geospatial-mcp/geonames-wikipedia:local"
       ]
+    },
+    "incident-analyst": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "geospatial-mcp/incident-analyst:local"
+      ]
     }
   }
 }

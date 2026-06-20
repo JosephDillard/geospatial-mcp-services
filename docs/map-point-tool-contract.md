@@ -24,6 +24,12 @@ tool:
 explore_point_with_geonames
 ```
 
+The incident analyst server uses the same map-click coordinate pattern.
+
+```text
+analyze_incident_point
+```
+
 ## Output Shape
 
 ```json
@@ -65,3 +71,8 @@ explore_point_with_geonames
 The status-board map can send the current click coordinate to an MCP-aware host or
 server-side bridge. The bridge should call `explore_point_with_geonames` and render
 returned links/context beside the map.
+
+For incident analysis, the bridge should call `analyze_incident_point` and render
+nearby incidents, nearby assets, risk level, operator summary, and recommended
+actions beside the map. The browser should call the bridge; it should not attempt
+to host stdio MCP directly.

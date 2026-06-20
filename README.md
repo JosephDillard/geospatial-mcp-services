@@ -8,11 +8,16 @@ The first server is **GeoNames Wikipedia MCP**. It accepts a map-click coordinat
 uses GeoNames nearby Wikipedia data, and returns nearby articles plus Wikipedia and
 web-search links.
 
+The second server is **Incident Analyst MCP**. It accepts a map-click coordinate,
+finds nearby synthetic operational incidents and critical assets, scores risk, and
+returns an operator-facing summary with recommended actions.
+
 ## Repository Layout
 
 ```text
 servers/
   geonames_wikipedia/       First MCP server: point -> GeoNames/Wikipedia context
+  incident_analyst/         Incident/asset/risk analysis for selected map points
 configs/
   mcp.docker.example.json   MCP host config using Docker stdio
 docs/
@@ -26,6 +31,12 @@ Tool name:
 
 ```text
 explore_point_with_geonames
+```
+
+Incident analyst tool name:
+
+```text
+analyze_incident_point
 ```
 
 Example arguments from a map click:
@@ -91,6 +102,13 @@ The unit tests avoid live network calls:
 ```powershell
 $env:PYTHONPATH = "servers/geonames_wikipedia/src"
 python -m unittest discover -s servers/geonames_wikipedia/tests -v
+```
+
+Incident Analyst tests:
+
+```powershell
+$env:PYTHONPATH = "servers/incident_analyst/src"
+python -m unittest discover -s servers/incident_analyst/tests -v
 ```
 
 ## Notes

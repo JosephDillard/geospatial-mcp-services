@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "incident-analyst-mcp"
+version = "0.1.0"
+description = "MCP server that analyzes selected map points against nearby operational incidents and assets."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.13.0"
+]
+
+[project.scripts]
+incident-analyst-mcp = "incident_analyst_mcp.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+incident_analyst_mcp = ["data/*.json"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

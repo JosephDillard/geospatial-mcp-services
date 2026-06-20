@@ -22,6 +22,7 @@ outside this repo.
 
 - MCP servers: `servers/<server_name>/`
 - First server: `servers/geonames_wikipedia/`
+- Incident server: `servers/incident_analyst/`
 - GeoNames/Wikipedia package:
   `servers/geonames_wikipedia/src/geonames_wikipedia_mcp/`
 - MCP host config examples: `configs/`
@@ -31,6 +32,10 @@ outside this repo.
 The first tool is `explore_point_with_geonames`, which accepts latitude and
 longitude from a map click and returns nearby GeoNames/Wikipedia context plus
 transparent source/search URLs.
+
+The incident analyst tool is `analyze_incident_point`, which accepts latitude and
+longitude from a map click and returns nearby synthetic incidents, nearby assets,
+operational risk, and recommended actions.
 
 ## Development Notes
 
@@ -57,6 +62,14 @@ python -m unittest discover -s servers/geonames_wikipedia/tests -v
 Remove-Item Env:PYTHONPATH
 ```
 
+Incident Analyst server tests:
+
+```powershell
+$env:PYTHONPATH = "servers/incident_analyst/src"
+python -m unittest discover -s servers/incident_analyst/tests -v
+Remove-Item Env:PYTHONPATH
+```
+
 Build the first MCP image:
 
 ```powershell
@@ -64,6 +77,15 @@ docker build `
   -t geospatial-mcp/geonames-wikipedia:local `
   -f servers/geonames_wikipedia/Dockerfile `
   servers/geonames_wikipedia
+```
+
+Build the incident analyst image:
+
+```powershell
+docker build `
+  -t geospatial-mcp/incident-analyst:local `
+  -f servers/incident_analyst/Dockerfile `
+  servers/incident_analyst
 ```
 
 Run as a Docker stdio MCP server:

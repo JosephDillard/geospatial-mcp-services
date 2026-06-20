@@ -12,3 +12,13 @@ services:
       MCP_LOG_LEVEL: ${MCP_LOG_LEVEL:-INFO}
     stdin_open: true
     tty: true
+
+  incident-analyst:
+    build:
+      context: ./servers/incident_analyst
+      dockerfile: Dockerfile
+    image: geospatial-mcp/incident-analyst:local
+    environment:
+      MCP_LOG_LEVEL: ${MCP_LOG_LEVEL:-INFO}
+    stdin_open: true
+    tty: true
