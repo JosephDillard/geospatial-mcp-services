@@ -1,3 +1,5 @@
+[Portfolio Home: Joseph C. Dillard Geospatial Project Stack](https://josephdillard.github.io/JosephDillard/)
+
 # Incident Analyst MCP
 
 Incident Analyst MCP is a Docker-ready Model Context Protocol server for map-click

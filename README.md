@@ -1,3 +1,5 @@
+[Portfolio Home: Joseph C. Dillard Geospatial Project Stack](https://josephdillard.github.io/JosephDillard/)
+
 # Geospatial MCP Services
 
 Geospatial MCP Services is a home for Dockerized Model Context Protocol servers

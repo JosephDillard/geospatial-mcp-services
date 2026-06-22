@@ -1,3 +1,5 @@
+[Portfolio Home: Joseph C. Dillard Geospatial Project Stack](https://josephdillard.github.io/JosephDillard/)
+
 # GeoNames Wikipedia MCP
 
 MCP server for enriching a selected map point with GeoNames and Wikipedia context.
