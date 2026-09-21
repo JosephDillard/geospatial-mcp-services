@@ -137,3 +137,7 @@ python -m unittest discover -s servers/incident_analyst/tests -v
   need a paid search API key.
 - Browser maps should call an app-owned bridge or API proxy, not the MCP stdio
   server directly. That keeps the transport boundary reviewable.
+
+## Repository guidance and copyright
+
+Repository-specific coding and validation instructions are in [AGENTS.md](AGENTS.md). See [COPYRIGHT.md](COPYRIGHT.md) for ownership, licensing scope, and third-party notices. The existing [MIT license](LICENSE) remains in effect.

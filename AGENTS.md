@@ -111,3 +111,10 @@ docker run --rm -i `
 - Update `configs/mcp.docker.example.json`, `README.md`, and
   `docs/map-point-tool-contract.md` when tool names, arguments, return payloads,
   or Docker commands change.
+
+## Repository documentation and notices
+
+- Keep [README.md](README.md) aligned with actual setup, commands, and limitations. Keep this `AGENTS.md` at the repository root and update relevant instructions when workflows change.
+- Follow [COPYRIGHT.md](COPYRIGHT.md) and any applicable license files. Preserve existing copyright years, ownership, third-party attribution, and license scope; do not relicense material as part of routine maintenance.
+- For documentation-only edits, verify added/changed local links and run `git diff --check`. Runtime suites are needed when behavior or executable examples change, not for a notice or wording-only edit.
+- Before finishing, review the diff for unrelated changes, generated artifacts, and secrets. Report what changed, what was checked, and any checks that could not run.
